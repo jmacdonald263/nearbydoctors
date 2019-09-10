@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Nearby Doctors</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        #map {
+        height: 85%;
+        width: 59.5%;
+        float: left;
+      }
+      html, body {
+        height: 100vh;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        padding-left: 1em;
+        padding-bottom: 8em;
+      }
+      #postcode-div {
+        padding-top: 1em;
+      }
+      .head1 { 
+            font-size:40px; 
+            font-weight:bold; 
+        } 
+        .head2 { 
+            font-size:20px;
+        }
+
+        #sidebar {
+          width: 39.5%;
+          float: right;
+        }
+        #spacer {
+          width: 1%;
+        }
+        #left-header {
+          float: left; 
+          width: 59.5%;
+        }
+        #right-header {
+          float: right;
+          width: 39.5%;
+        }
+        #main {
+          display: inline;
+        }
+        #appointment-details {
+          padding-top: 2em;
+        }
+        #appointment-details input {
+          display: block;
+        }
+        #appointment-details button {
+          margin-top: 1%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id=left-header>
+            <div class="head1">Find Nearby Doctors</div>
+            <div class="head2">Book Appointments</div>
+            <div id='postcode-div'>Postcode: <input id="postcode" type="text" name="postcode"> <button onclick="postcodeButton()">Update</button></div>
+        </div>
+        <div id='right-header'>
+            <div class="head1">How To Book Appointment</div>
+            <div id='howto'>
+                <p>
+                    Either allow location permission or enter your postcode to find doctors near you.</br>
+                    Click on the marker to discover name and location information about the doctors.</br>
+                    When satisfied with your choice, fill out form and click 'Book Appoitment' button.
+                </p>
+            </div>
+        </div>
+    </header>
+    <div id="main">
+        <div id="map"></div>
+        <div id="spacer"></div>
+        <div id='sidebar'>
+            <div id='sidebar-header'>
+                <div class="head2">Appointment Booking</div>
+            </div>
+            <div id='selected-details'>
+                <span>Name: </span><span id='drname'></span></br>
+                <span>Location: </span><span id='vicinity'></span>
+            </div>
+            <div id='appointment-details'>
+                <div class='head2'>Your Details</div>
+                Full Name: <input id="name" type="text" name="name"></br>
+                Email: <input id="email" type="email" name="email"></br>
+                Preferred Appointment Time: <input id="time" type="text" name="time">
+                <button onclick="bookAppointment()">Book Appointment</button>
+            </div>
+        </div>
+    </div>
+    <script src='./phlo.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4_omKgZl--yQBnzK8vzKjpBCFJ65SMPE&callback=initMap&libraries=places" async defer></script>
+</body>
+
+</html>
